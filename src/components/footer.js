@@ -7,11 +7,11 @@ import Image from "react-bootstrap/Image";
 const FooterContainer = styled(Container)`
   color: ${(props) => props.theme.colors.aspBlue};
   padding: 4rem 0rem;
+  width: 75%;
   p {
     font-size: ${(props) => props.theme.fontSize.extraSmall};
   }
   a {
-    font-weight: bold;
     color: ${(props) => props.theme.colors.aspBlue};
     text-decoration: none;
     transition: 0.3s;
@@ -24,9 +24,16 @@ const FooterContainer = styled(Container)`
   }
   li {
     font-size: ${(props) => props.theme.fontSize.extraSmall};
+    line-height: ${(props) => props.theme.fontSize.smallMedium};
   }
   li:first-child {
     font-weight: bold;
+  }
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    ul {
+      padding: 0;
+    }
   }
 `;
 
@@ -38,44 +45,124 @@ const CompanyLogo = styled(Image)`
 const LinksSection = styled.div`
   display: flex;
   justify-content: flex-end;
+  padding: 0 0 4rem 0;
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    flex-flow: column;
+  }
 `;
 
-const SiteLinksColumn = styled.div``;
+const SiteLinksColumn = styled.div`
+  padding: 0 1rem;
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    padding: 0;
+  }
+`;
 
-const SocialLinksColumn = styled.div``;
+const SocialLinksColumn = styled.div`
+  padding: 0 1rem;
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    padding: 0;
+  }
+`;
+
+const AddressColumn = styled.div`
+  padding: 0;
+`;
 
 const CopyrightSection = styled.div`
-  border-top: 1px solid ${(props) => props.theme.colors.aspBlue};
+  border-top: 1px solid ${(props) => props.theme.colors.aspLightGray};
   display: flex;
   padding: 1rem 0 0 0;
   justify-content: space-between;
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    flex-flow: column;
+    text-align: center;
+    p {
+      padding: 0;
+      margin: 0.1rem;
+    }
+  }
 `;
 
 const Footer = () => {
   return (
-    <FooterContainer>
+    <FooterContainer fluid>
       <Row>
         <Col sm={4}>
           <CompanyLogo src={AspLogo} fluid />
-          <p>
-            1420 Kettner Blvd. Suite 324<br></br>
-            San Diego CA 92101
-          </p>
         </Col>
         <Col sm={8}>
           <LinksSection>
             <SiteLinksColumn>
               <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Pricing</li>
-                <li>Insights</li>
-                <li>Contact</li>
+                <li>Product</li>
+                <li>
+                  <a href="/about">About</a>
+                </li>
+                <li>
+                  <a href="/pricing">Pricing</a>
+                </li>
+                <li>
+                  <a href="/insights">Insights</a>
+                </li>
               </ul>
             </SiteLinksColumn>
             <SocialLinksColumn>
-              <p>something</p>
+              <ul>
+                <li>Social</li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/autoshoppay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/autoshoppay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Twitter
+                  </a>
+                </li>
+              </ul>
             </SocialLinksColumn>
+            <AddressColumn>
+              <ul>
+                <li>Contact</li>
+                <li>
+                  <p>
+                    1420 Kettner Blvd. Suite 324<br></br>
+                    San Diego CA 92101<br></br>
+                  </p>
+                </li>
+
+                <li>
+                  <a
+                    href="mailto:hello@autoshoppay.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    619 990-8133
+                  </a>
+                  <br></br>
+                  <a
+                    href="mailto:hello@autoshoppay.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    hello@autoshoppay.com
+                  </a>
+                </li>
+              </ul>
+            </AddressColumn>
           </LinksSection>
         </Col>
       </Row>
@@ -84,7 +171,14 @@ const Footer = () => {
           <CopyrightSection>
             <p>Copyright &#169; Auto Shop Pay 2020.</p>
             <p>
-              Design and code by <a href="">Ayeteejay</a>
+              Design and code by{" "}
+              <a
+                href="https://www.ayeteejay.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ayeteejay
+              </a>
             </p>
           </CopyrightSection>
         </Col>

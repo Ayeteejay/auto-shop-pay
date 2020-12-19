@@ -11,6 +11,7 @@ const theme = {
     aspDarkYellow: "#BF9A5A",
     aspBlue: "#102e57",
     aspLightBlue: "#efefef",
+    aspLightGray: "#cecece",
   },
   fontSize: {
     extraSmall: "0.8rem",

@@ -15,6 +15,10 @@ const ContainerRow = styled(Row)`
     color: ${(props) => props.theme.colors.aspDarkYellow};
   }
 `;
+
+const ContainerSection = styled(Container)`
+  width: 75%;
+`;
 const HeroSection = styled.div`
   padding: 0 3rem 0 0;
   p {
@@ -69,7 +73,7 @@ const SecondaryCallToAction = styled.a`
   }
 `;
 
-const QuickFactCol = styled.div`
+const QuickFactColumn = styled.div`
   transition: 0.3s;
   background-color: white;
   padding: 2.5rem;
@@ -85,7 +89,7 @@ const IndexPage = () => {
       {/* Hero Section */}
       <Fade>
         <ContainerRow>
-          <Container>
+          <ContainerSection fluid>
             <Row>
               <Col sm={6}>
                 <HeroSection>
@@ -103,13 +107,13 @@ const IndexPage = () => {
                 <Image src={HeroIllustration} fluid />
               </Col>
             </Row>
-          </Container>
+          </ContainerSection>
         </ContainerRow>
       </Fade>
       {/* Difference Section */}
       <Fade>
         <ContainerRow backgroundColor="white">
-          <Container>
+          <ContainerSection fluid>
             <Row>
               <Col sm={12}>
                 <IntroSection>
@@ -162,16 +166,28 @@ const IndexPage = () => {
                 </Fade>
               </Col>
             </Row>
-          </Container>
+          </ContainerSection>
         </ContainerRow>
       </Fade>
       {/* Four Quick Facts Section */}
       <Fade>
         <ContainerRow>
-          <Container>
+          <ContainerSection fluid>
             <Row>
-              <Col sm={4}>
-                <QuickFactCol>
+              <Col sm={3}>
+                <QuickFactColumn>
+                  <h5>Payments Simplified</h5>
+                  <h4>Simple, flat rate pricing</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    hendrerit nisi sed sollicitudin pellentesque posuere purus
+                    rhoncus.
+                  </p>
+                  <a href="/">Learn more &#8594;</a>
+                </QuickFactColumn>
+              </Col>
+              <Col sm={3}>
+                <QuickFactColumn>
                   <h5>The freedom of month-to-month</h5>
                   <h4>No contracts</h4>
                   <p>
@@ -180,10 +196,10 @@ const IndexPage = () => {
                     rhoncus.
                   </p>
                   <a href="/">Learn more &#8594;</a>
-                </QuickFactCol>
+                </QuickFactColumn>
               </Col>
-              <Col sm={4}>
-                <QuickFactCol>
+              <Col sm={3}>
+                <QuickFactColumn>
                   <h5>Abosolute best industry pricing</h5>
                   <h4>Significant savings</h4>
                   <p>
@@ -192,10 +208,10 @@ const IndexPage = () => {
                     rhoncus.
                   </p>
                   <a href="/">Learn more &#8594;</a>
-                </QuickFactCol>
+                </QuickFactColumn>
               </Col>
-              <Col sm={4}>
-                <QuickFactCol>
+              <Col sm={3}>
+                <QuickFactColumn>
                   <h5>Works across multiple platforms</h5>
                   <h4>Easy integration</h4>
                   <p>
@@ -204,16 +220,16 @@ const IndexPage = () => {
                     rhoncus.
                   </p>
                   <a href="/">Learn more &#8594;</a>
-                </QuickFactCol>
+                </QuickFactColumn>
               </Col>
             </Row>
-          </Container>
+          </ContainerSection>
         </ContainerRow>
       </Fade>
       {/* Additional Facts Section */}
       <Fade>
         <ContainerRow backgroundColor="white">
-          <Container>
+          <ContainerSection fluid>
             <Row>
               <Col sm={12}>
                 <h5>At a glance</h5>
@@ -250,7 +266,7 @@ const IndexPage = () => {
                 </p>
               </Col>
             </Row>
-          </Container>
+          </ContainerSection>
         </ContainerRow>
       </Fade>
     </Layout>
