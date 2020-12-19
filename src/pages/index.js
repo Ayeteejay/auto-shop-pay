@@ -10,7 +10,7 @@ import Image from "react-bootstrap/Image";
 const ContainerRow = styled(Row)`
   padding: 7rem 0;
   background-color: ${(props) =>
-    props.backgroundColor || props.theme.colors.aspLightYellow};
+    props.backgroundColor || props.theme.colors.aspLightBlue};
   a {
     color: ${(props) => props.theme.colors.aspDarkYellow};
   }
@@ -47,7 +47,7 @@ const CallToAction = styled.a`
   background-color: ${(props) => props.theme.colors.aspBlue};
   padding: 1rem 2rem;
   color: white !important;
-  border-radius: 0.2rem;
+  // border-radius: 0.2rem;
   transition: 0.3s;
   :hover {
     text-decoration: none;
@@ -60,12 +60,22 @@ const SecondaryCallToAction = styled.a`
   border: 1px solid ${(props) => props.theme.colors.aspBlue};
   padding: 1rem 2rem;
   color: ${(props) => props.theme.colors.aspBlue}!important;
-  border-radius: 0.2rem;
+  // border-radius: 0.2rem;
   transition: 0.3s;
   :hover {
     text-decoration: none;
     color: white !important;
     background-color: ${(props) => props.theme.colors.aspBlue};
+  }
+`;
+
+const QuickFactCol = styled.div`
+  transition: 0.3s;
+  background-color: white;
+  padding: 2.5rem;
+  :hover {
+    transform: translate(-10px, -20px);
+    box-shadow: 15px 15px ${(props) => props.theme.colors.aspBlue};
   }
 `;
 
@@ -136,14 +146,18 @@ const IndexPage = () => {
                   <p>
                     We work with numerous vendors to obtain the lowest cost
                     solutions so you don’t have to go through the headache of
-                    sourcing and negotiation.{" "}
+                    sourcing and negotiation.
                   </p>
                 </DescriptionSection>
               </Col>
               <Col sm={6}>
-                <Fade bottom>
+                <Fade>
                   <DescriptionSection>
-                    <Image src={MechanicPicture} fluid />
+                    <Image
+                      src={MechanicPicture}
+                      fluid
+                      alt="Mechanic hard at work."
+                    />
                   </DescriptionSection>
                 </Fade>
               </Col>
@@ -156,43 +170,84 @@ const IndexPage = () => {
         <ContainerRow>
           <Container>
             <Row>
+              <Col sm={4}>
+                <QuickFactCol>
+                  <h5>The freedom of month-to-month</h5>
+                  <h4>No contracts</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    hendrerit nisi sed sollicitudin pellentesque posuere purus
+                    rhoncus.
+                  </p>
+                  <a href="/">Learn more &#8594;</a>
+                </QuickFactCol>
+              </Col>
+              <Col sm={4}>
+                <QuickFactCol>
+                  <h5>Abosolute best industry pricing</h5>
+                  <h4>Significant savings</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    hendrerit nisi sed sollicitudin pellentesque posuere purus
+                    rhoncus.
+                  </p>
+                  <a href="/">Learn more &#8594;</a>
+                </QuickFactCol>
+              </Col>
+              <Col sm={4}>
+                <QuickFactCol>
+                  <h5>Works across multiple platforms</h5>
+                  <h4>Easy integration</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    hendrerit nisi sed sollicitudin pellentesque posuere purus
+                    rhoncus.
+                  </p>
+                  <a href="/">Learn more &#8594;</a>
+                </QuickFactCol>
+              </Col>
+            </Row>
+          </Container>
+        </ContainerRow>
+      </Fade>
+      {/* Additional Facts Section */}
+      <Fade>
+        <ContainerRow backgroundColor="white">
+          <Container>
+            <Row>
+              <Col sm={12}>
+                <h5>At a glance</h5>
+                <h2>Payments Simplified.</h2>
+              </Col>
+            </Row>
+            <Row>
               <Col sm={3}>
-                <h5>Payments Simplified</h5>
-                <h4>Simple, flat rate pricing</h4>
+                <h4>Lowest prices</h4>
                 <p>
-                  Pour-over franzen jianbing wayfarers, swag authentic before
-                  they sold out. Fanny pack selvage banjo intelligentsia vinyl
-                  man.
+                  Our network and experience in the industry has given us
+                  exclusive pricing for the auto industry.
                 </p>
-                <a href="/">Learn more &#8594;</a>
               </Col>
               <Col sm={3}>
-                <h5>The freedom of month-to-month</h5>
                 <h4>No contracts</h4>
                 <p>
-                  Drinking vinegar put a bird on it cold-pressed gastropub cray
-                  post-ironic brunch.
+                  We don't force you to stay with us. But our simple pricing
+                  plans and great service make it hard to leave.
                 </p>
-                <a href="/">Learn more &#8594;</a>
               </Col>
               <Col sm={3}>
-                <h5>Abosolute best industry pricing</h5>
-                <h4>Significant savings</h4>
+                <h4>Save money</h4>
                 <p>
-                  Jianbing you probably haven't heard of them snackwave
-                  wayfarers locavore truffaut banjo celiac tumblr.
+                  Our clients save a significant amount of money on card
+                  processing fees, improving margins and profitability.
                 </p>
-                <a href="/">Learn more &#8594;</a>
               </Col>
               <Col sm={3}>
-                <h5>Payments Simplified</h5>
-                <h4>Simple, flat rate pricing</h4>
+                <h4>Easy devices</h4>
                 <p>
-                  Cardigan occupy air plant, art party cred pug helvetica salvia
-                  single-origin coffee kale chips beard shabby chic cold-pressed
-                  drinking vinegar
+                  We work across numerous hardware and software options, making
+                  it easy for you to start saving today.
                 </p>
-                <a href="/">Learn more &#8594;</a>
               </Col>
             </Row>
           </Container>

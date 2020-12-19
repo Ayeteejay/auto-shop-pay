@@ -3,12 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled, { ThemeProvider } from "styled-components";
 import { Container } from "react-bootstrap";
 import "../css/index.css";
+import Footer from "../components/footer.js";
 
 const theme = {
   colors: {
-    aspLightYellow: "#fff3e1",
+    aspLightYellow: "#fff6eb",
     aspDarkYellow: "#BF9A5A",
     aspBlue: "#102e57",
+    aspLightBlue: "#efefef",
   },
   fontSize: {
     extraSmall: "0.8rem",
@@ -56,6 +58,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <MainContainer fluid>{children}</MainContainer>
+      <Footer></Footer>
     </ThemeProvider>
   );
 };
