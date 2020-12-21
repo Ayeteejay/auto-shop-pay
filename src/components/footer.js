@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import AspLogo from "../images/autoshop-pay-blue-logo.svg";
 import Image from "react-bootstrap/Image";
+import Fade from "react-reveal";
 
 const FooterContainer = styled(Container)`
   color: ${(props) => props.theme.colors.aspBlue};
@@ -34,6 +35,9 @@ const FooterContainer = styled(Container)`
     ul {
       padding: 0;
     }
+  }
+  span {
+    font-weight: bold;
   }
 `;
 
@@ -90,100 +94,104 @@ const CopyrightSection = styled.div`
 
 const Footer = () => {
   return (
-    <FooterContainer fluid>
-      <Row>
-        <Col sm={4}>
-          <CompanyLogo src={AspLogo} fluid />
-        </Col>
-        <Col sm={8}>
-          <LinksSection>
-            <SiteLinksColumn>
-              <ul>
-                <li>Product</li>
-                <li>
-                  <a href="/about">About</a>
-                </li>
-                <li>
-                  <a href="/pricing">Pricing</a>
-                </li>
-                <li>
-                  <a href="/insights">Insights</a>
-                </li>
-              </ul>
-            </SiteLinksColumn>
-            <SocialLinksColumn>
-              <ul>
-                <li>Social</li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/autoshoppay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://twitter.com/autoshoppay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Twitter
-                  </a>
-                </li>
-              </ul>
-            </SocialLinksColumn>
-            <AddressColumn>
-              <ul>
-                <li>Contact</li>
-                <li>
-                  <p>
-                    1420 Kettner Blvd. Suite 324<br></br>
-                    San Diego CA 92101<br></br>
-                  </p>
-                </li>
+    <Fade>
+      <FooterContainer fluid>
+        <Row>
+          <Col sm={4}>
+            <CompanyLogo src={AspLogo} fluid />
+          </Col>
+          <Col sm={8}>
+            <LinksSection>
+              <SiteLinksColumn>
+                <ul>
+                  <li>Product</li>
+                  <li>
+                    <a href="/about">About</a>
+                  </li>
+                  <li>
+                    <a href="/pricing">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="/insights">Insights</a>
+                  </li>
+                </ul>
+              </SiteLinksColumn>
+              <SocialLinksColumn>
+                <ul>
+                  <li>Social</li>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/autoshoppay"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://twitter.com/autoshoppay"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Twitter
+                    </a>
+                  </li>
+                </ul>
+              </SocialLinksColumn>
+              <AddressColumn>
+                <ul>
+                  <li>Contact</li>
+                  <li>
+                    <p>
+                      1420 Kettner Blvd. Suite 324<br></br>
+                      San Diego CA 92101<br></br>
+                    </p>
+                  </li>
 
-                <li>
-                  <a
-                    href="mailto:hello@autoshoppay.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    619 990-8133
-                  </a>
-                  <br></br>
-                  <a
-                    href="mailto:hello@autoshoppay.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    hello@autoshoppay.com
-                  </a>
-                </li>
-              </ul>
-            </AddressColumn>
-          </LinksSection>
-        </Col>
-      </Row>
-      <Row>
-        <Col sm={12}>
-          <CopyrightSection>
-            <p>Copyright &#169; Auto Shop Pay 2020.</p>
-            <p>
-              Design and code by{" "}
-              <a
-                href="https://www.ayeteejay.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ayeteejay
-              </a>
-            </p>
-          </CopyrightSection>
-        </Col>
-      </Row>
-    </FooterContainer>
+                  <li>
+                    <a
+                      href="mailto:hello@autoshoppay.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      619 990-8133
+                    </a>
+                    <br></br>
+                    <span>
+                      <a
+                        href="mailto:hello@autoshoppay.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        hello@autoshoppay.com
+                      </a>
+                    </span>
+                  </li>
+                </ul>
+              </AddressColumn>
+            </LinksSection>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12}>
+            <CopyrightSection>
+              <p>Copyright &#169; Auto Shop Pay 2020.</p>
+              <p>
+                Design and code by{" "}
+                <a
+                  href="https://www.ayeteejay.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ayeteejay
+                </a>
+              </p>
+            </CopyrightSection>
+          </Col>
+        </Row>
+      </FooterContainer>
+    </Fade>
   );
 };
 export default Footer;

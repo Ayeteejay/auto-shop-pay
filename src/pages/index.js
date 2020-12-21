@@ -6,6 +6,12 @@ import Fade from "react-reveal";
 import HeroIllustration from "../images/autoshoppay-hero.svg";
 import MechanicPicture from "../images/mechanic.jpg";
 import Image from "react-bootstrap/Image";
+import LowestPrices from "../images/icons/lowest-prices-icon.svg";
+import NoContracts from "../images/icons/no-contracts-icon.svg";
+import SaveMoney from "../images/icons/save-money-icon.svg";
+import EasyDevices from "../images/icons/easy-devices-icon.svg";
+import Biker from "../images/illustrations/motorcycle-homie.svg";
+import Customer from "../images/customer-quote.jpg";
 
 const ContainerRow = styled(Row)`
   padding: 7rem 0;
@@ -46,16 +52,23 @@ const DescriptionSection = styled.div`
     line-height: 2.3rem;
     font-weight: 200;
   }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    padding: 1rem 0;
+  }
 `;
 const CallToAction = styled.a`
-  background-color: ${(props) => props.theme.colors.aspBlue};
+  background-color: ${(props) => props.theme.colors.aspDarkYellow};
   padding: 1rem 2rem;
   color: white !important;
-  // border-radius: 0.2rem;
   transition: 0.3s;
   :hover {
     text-decoration: none;
-    background-color: ${(props) => props.theme.colors.aspDarkYellow};
+    background-color: ${(props) => props.theme.colors.aspBlue};
   }
 `;
 
@@ -64,7 +77,6 @@ const SecondaryCallToAction = styled.a`
   border: 1px solid ${(props) => props.theme.colors.aspBlue};
   padding: 1rem 2rem;
   color: ${(props) => props.theme.colors.aspBlue}!important;
-  // border-radius: 0.2rem;
   transition: 0.3s;
   :hover {
     text-decoration: none;
@@ -81,6 +93,80 @@ const QuickFactColumn = styled.div`
     transform: translate(-10px, -20px);
     box-shadow: 15px 15px ${(props) => props.theme.colors.aspBlue};
   }
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    margin: 1rem 0;
+  }
+  a {
+    transition: 0.3s;
+  }
+  a:hover {
+    color: ${(props) => props.theme.colors.aspBlue};
+    text-decoration: none;
+  }
+`;
+
+const Icons = styled(Image)`
+  max-width: 45px;
+`;
+
+const AdditionalFactsSection = styled.div`
+  padding: 0 0 1rem 0;
+`;
+
+const AdditionalFactsImageColumn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  img {
+    width: 700px;
+    padding: 1rem;
+  }
+`;
+
+const AdditionalFactsColumn = styled.div`
+  padding: 1rem 0 0 0;
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    margin: 1rem 0;
+    padding: 0;
+  }
+`;
+
+const CustomerQuoteSection = styled(Row)`
+  background-color: ${(props) => props.theme.colors.aspLightBlue};
+  transition: 0.3s;
+  :hover {
+    transform: translate(-10px, -20px);
+    box-shadow: 15px 15px ${(props) => props.theme.colors.aspBlue};
+  }
+  .bold-statement {
+    color: ${(props) => props.theme.colors.aspBlue};
+    font-size: ${(props) => props.theme.fontSize.smallMedium};
+    line-height: 2.3rem;
+    font-weight: 200;
+  }
+  .quote-column {
+    padding: 4rem;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+  .quote-person {
+    color: ${(props) => props.theme.colors.aspBlue};
+  }
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    .quote-column {
+      padding: 2rem;
+    }
+    .bold-statement {
+      font-size: ${(props) => props.theme.fontSize.small};
+      line-height: 1.5rem;
+    }
+  }
 `;
 
 const IndexPage = () => {
@@ -95,9 +181,10 @@ const IndexPage = () => {
                 <HeroSection>
                   <h1>Payments Simplified</h1>
                   <p>
-                    Etsy street art semiotics trust fund messenger bag man bun
-                    shoreditch cray migas jianbing air plant snackwave you
-                    probably haven't heard of them poke chambray.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    hendrerit nisi sed sollicitudin pellentesque posuere purus
+                    rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit.
                   </p>
                   <CallToAction href="/">Book Appointment &#8594;</CallToAction>
                   <p className="details">Take the $100 challenge today!</p>
@@ -129,29 +216,31 @@ const IndexPage = () => {
             <Row>
               <Col sm={6}>
                 <DescriptionSection>
-                  <p className="bold-statement">
-                    Eliminate complicated fees and statements. Experience
-                    simple, low cost, flat rate merchant services...
-                  </p>
-                  <p>
-                    Merchant services are confusing and often corrupt, with YOU
-                    as the victim. From opaque sales process to confusing
-                    statements these egregious practices erode your
-                    profitability month after month.
-                  </p>
-                  <p>
-                    Since we only work with the auto industry we have the
-                    expertise to get you tuned up and saving money quickly.
-                  </p>
-                  <p>
-                    Our experience in simplifying payment technology enables us
-                    to deliver the perfect program for your shop.
-                  </p>
-                  <p>
-                    We work with numerous vendors to obtain the lowest cost
-                    solutions so you don’t have to go through the headache of
-                    sourcing and negotiation.
-                  </p>
+                  <div>
+                    <p className="bold-statement">
+                      Eliminate complicated fees and statements. Experience
+                      simple, low cost, flat rate merchant services...
+                    </p>
+                    <p>
+                      Merchant services are confusing and often corrupt, with
+                      YOU as the victim. From opaque sales process to confusing
+                      statements these egregious practices erode your
+                      profitability month after month.
+                    </p>
+                    <p>
+                      Since we only work with the auto industry we have the
+                      expertise to get you tuned up and saving money quickly.
+                    </p>
+                    <p>
+                      Our experience in simplifying payment technology enables
+                      us to deliver the perfect program for your shop.
+                    </p>
+                    <p>
+                      We work with numerous vendors to obtain the lowest cost
+                      solutions so you don’t have to go through the headache of
+                      sourcing and negotiation.
+                    </p>
+                  </div>
                 </DescriptionSection>
               </Col>
               <Col sm={6}>
@@ -231,43 +320,91 @@ const IndexPage = () => {
         <ContainerRow backgroundColor="white">
           <ContainerSection fluid>
             <Row>
-              <Col sm={12}>
-                <h5>At a glance</h5>
-                <h2>Payments Simplified.</h2>
+              <Col sm={6}>
+                <AdditionalFactsImageColumn>
+                  <Image src={Biker} fluid />
+                </AdditionalFactsImageColumn>
               </Col>
-            </Row>
-            <Row>
-              <Col sm={3}>
-                <h4>Lowest prices</h4>
-                <p>
-                  Our network and experience in the industry has given us
-                  exclusive pricing for the auto industry.
-                </p>
-              </Col>
-              <Col sm={3}>
-                <h4>No contracts</h4>
-                <p>
-                  We don't force you to stay with us. But our simple pricing
-                  plans and great service make it hard to leave.
-                </p>
-              </Col>
-              <Col sm={3}>
-                <h4>Save money</h4>
-                <p>
-                  Our clients save a significant amount of money on card
-                  processing fees, improving margins and profitability.
-                </p>
-              </Col>
-              <Col sm={3}>
-                <h4>Easy devices</h4>
-                <p>
-                  We work across numerous hardware and software options, making
-                  it easy for you to start saving today.
-                </p>
+              <Col sm={6}>
+                <Row>
+                  <Col sm={12}>
+                    <AdditionalFactsSection>
+                      <h5>At a glance</h5>
+                      <h2>Payments Simplified.</h2>
+                    </AdditionalFactsSection>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col sm={6}>
+                    <AdditionalFactsColumn>
+                      <Icons src={LowestPrices} fluid />
+                      <h4>Lowest prices</h4>
+                      <p>
+                        Our network and experience in the industry has given us
+                        exclusive pricing for the auto industry.
+                      </p>
+                    </AdditionalFactsColumn>
+                  </Col>
+                  <Col sm={6}>
+                    <AdditionalFactsColumn>
+                      <Icons src={NoContracts} fluid />
+                      <h4>No contracts</h4>
+                      <p>
+                        We don't force you to stay with us. But our simple
+                        pricing plans and great service make it hard to leave.
+                      </p>
+                    </AdditionalFactsColumn>
+                  </Col>
+                  <Col sm={6}>
+                    <AdditionalFactsColumn>
+                      <Icons src={SaveMoney} fluid />
+                      <h4>Save money</h4>
+                      <p>
+                        Our clients save a significant amount of money on card
+                        processing fees, improving margins and profitability.
+                      </p>
+                    </AdditionalFactsColumn>
+                  </Col>
+                  <Col sm={6}>
+                    <AdditionalFactsColumn>
+                      <Icons src={EasyDevices} fluid />
+                      <h4>Easy devices</h4>
+                      <p>
+                        We work across numerous hardware and software options,
+                        making it easy for you to start saving today.
+                      </p>
+                    </AdditionalFactsColumn>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </ContainerSection>
         </ContainerRow>
+        {/* Customer Quote Section */}
+        <Row>
+          <ContainerSection fluid>
+            <CustomerQuoteSection>
+              <Col sm={3} className="p-0">
+                <Image src={Customer} fluid />
+              </Col>
+              <Col sm={9}>
+                <div className="quote-column">
+                  <p className="bold-statement">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nam hendrerit nisi sed sollicitudin pellentesque posuere
+                    purus rhoncus. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Lorem ipsum dolor sit dolor lorem ipsum."
+                  </p>
+                  <p className="quote-person">
+                    <strong>John Doe</strong>
+                    <br />
+                    North Park Auto Repair
+                  </p>
+                </div>
+              </Col>
+            </CustomerQuoteSection>
+          </ContainerSection>
+        </Row>
       </Fade>
     </Layout>
   );
