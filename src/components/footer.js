@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import AspLogo from "../images/autoshop-pay-blue-logo.svg";
 import Image from "react-bootstrap/Image";
@@ -106,13 +107,13 @@ const Footer = () => {
                 <ul>
                   <li>Product</li>
                   <li>
-                    <a href="/about">About</a>
+                    <Link to="/about">About</Link>
                   </li>
                   <li>
-                    <a href="/pricing">Pricing</a>
+                    <Link to="/pricing">Pricing</Link>
                   </li>
                   <li>
-                    <a href="/insights">Insights</a>
+                    <Link to="/insights">Insights</Link>
                   </li>
                 </ul>
               </SiteLinksColumn>

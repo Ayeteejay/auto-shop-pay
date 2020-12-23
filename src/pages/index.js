@@ -1,8 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 import { Row, Col, Container } from "react-bootstrap";
 import Layout from "../components/layout.js";
 import Fade from "react-reveal";
+import Slide from "react-reveal/Slide";
 import HeroIllustration from "../images/autoshoppay-hero.svg";
 import MechanicPicture from "../images/mechanic.jpg";
 import Image from "react-bootstrap/Image";
@@ -16,9 +18,13 @@ import Customer from "../images/customer-quote.jpg";
 const ContainerRow = styled(Row)`
   padding: 7rem 0;
   background-color: ${(props) =>
-    props.backgroundColor || props.theme.colors.aspLightBlue};
+    props.backgroundcolor || props.theme.colors.aspLightBlue};
   a {
     color: ${(props) => props.theme.colors.aspDarkYellow};
+  }
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    padding: 4rem 0;
   }
 `;
 
@@ -34,6 +40,10 @@ const HeroSection = styled.div`
     color: rgba(0, 0, 0, 0.4);
     font-size: 0.8rem;
     padding: 1.2rem 0 0 0;
+  }
+  @media only screen and (max-width: ${(props) =>
+      props.theme.breakPoints.small}) {
+    padding: 1rem 0 0 0;
   }
 `;
 const IntroSection = styled.div`
@@ -61,7 +71,7 @@ const DescriptionSection = styled.div`
     padding: 1rem 0;
   }
 `;
-const CallToAction = styled.a`
+const CallToAction = styled(Link)`
   background-color: ${(props) => props.theme.colors.aspDarkYellow};
   padding: 1rem 2rem;
   color: white !important;
@@ -72,7 +82,7 @@ const CallToAction = styled.a`
   }
 `;
 
-const SecondaryCallToAction = styled.a`
+const SecondaryCallToAction = styled(Link)`
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid ${(props) => props.theme.colors.aspBlue};
   padding: 1rem 2rem;
@@ -94,7 +104,7 @@ const QuickFactColumn = styled.div`
     box-shadow: 15px 15px ${(props) => props.theme.colors.aspBlue};
   }
   @media only screen and (max-width: ${(props) =>
-      props.theme.breakPoints.small}) {
+      props.theme.breakPoints.large}) {
     margin: 1rem 0;
   }
   a {
@@ -108,6 +118,10 @@ const QuickFactColumn = styled.div`
 
 const Icons = styled(Image)`
   max-width: 45px;
+  transition: 0.3s;
+  :hover {
+    transform: translate(0, -10px);
+  }
 `;
 
 const AdditionalFactsSection = styled.div`
@@ -154,6 +168,13 @@ const CustomerQuoteSection = styled(Row)`
     flex-flow: column;
     justify-content: center;
   }
+  .quote-image-column {
+    background-image: url(${Customer});
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   .quote-person {
     color: ${(props) => props.theme.colors.aspBlue};
   }
@@ -177,7 +198,7 @@ const IndexPage = () => {
         <ContainerRow>
           <ContainerSection fluid>
             <Row>
-              <Col sm={6}>
+              <Col md={{ span: 6, order: 1 }} xs={{ span: 12, order: 2 }}>
                 <HeroSection>
                   <h1>Payments Simplified</h1>
                   <p>
@@ -186,11 +207,13 @@ const IndexPage = () => {
                     rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing
                     elit.
                   </p>
-                  <CallToAction href="/">Book Appointment &#8594;</CallToAction>
+                  <CallToAction to="/contact">
+                    Book Appointment &#8594;
+                  </CallToAction>
                   <p className="details">Take the $100 challenge today!</p>
                 </HeroSection>
               </Col>
-              <Col sm={6}>
+              <Col md={{ span: 6, order: 2 }} xs={{ span: 12, order: 1 }}>
                 <Image src={HeroIllustration} fluid />
               </Col>
             </Row>
@@ -199,7 +222,7 @@ const IndexPage = () => {
       </Fade>
       {/* Difference Section */}
       <Fade>
-        <ContainerRow backgroundColor="white">
+        <ContainerRow backgroundcolor="white">
           <ContainerSection fluid>
             <Row>
               <Col sm={12}>
@@ -207,7 +230,7 @@ const IndexPage = () => {
                   <h5>The Auto Shop Pay difference</h5>
                   <h2>We make getting paid, simple.</h2>
                   <p>1.7% for swiped transactions!</p>
-                  <SecondaryCallToAction href="/">
+                  <SecondaryCallToAction to="/">
                     Learn more about pricing &#8594;
                   </SecondaryCallToAction>
                 </IntroSection>
@@ -263,53 +286,61 @@ const IndexPage = () => {
         <ContainerRow>
           <ContainerSection fluid>
             <Row>
-              <Col sm={3}>
-                <QuickFactColumn>
-                  <h5>Payments Simplified</h5>
-                  <h4>Simple, flat rate pricing</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                    hendrerit nisi sed sollicitudin pellentesque posuere purus
-                    rhoncus.
-                  </p>
-                  <a href="/">Learn more &#8594;</a>
-                </QuickFactColumn>
+              <Col lg={3}>
+                <Fade bottom>
+                  <QuickFactColumn>
+                    <h5>Payments Simplified</h5>
+                    <h4>Simple, flat rate pricing</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nam hendrerit nisi sed sollicitudin pellentesque posuere
+                      purus rhoncus.
+                    </p>
+                    <Link to="/">Learn more &#8594;</Link>
+                  </QuickFactColumn>
+                </Fade>
               </Col>
-              <Col sm={3}>
-                <QuickFactColumn>
-                  <h5>The freedom of month-to-month</h5>
-                  <h4>No contracts</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                    hendrerit nisi sed sollicitudin pellentesque posuere purus
-                    rhoncus.
-                  </p>
-                  <a href="/">Learn more &#8594;</a>
-                </QuickFactColumn>
+              <Col lg={3}>
+                <Fade bottom>
+                  <QuickFactColumn>
+                    <h5>The freedom of month-to-month</h5>
+                    <h4>No contracts</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nam hendrerit nisi sed sollicitudin pellentesque posuere
+                      purus rhoncus.
+                    </p>
+                    <Link to="/">Learn more &#8594;</Link>
+                  </QuickFactColumn>
+                </Fade>
               </Col>
-              <Col sm={3}>
-                <QuickFactColumn>
-                  <h5>Abosolute best industry pricing</h5>
-                  <h4>Significant savings</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                    hendrerit nisi sed sollicitudin pellentesque posuere purus
-                    rhoncus.
-                  </p>
-                  <a href="/">Learn more &#8594;</a>
-                </QuickFactColumn>
+              <Col lg={3}>
+                <Fade bottom>
+                  <QuickFactColumn>
+                    <h5>Abosolute best industry pricing</h5>
+                    <h4>Significant savings</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nam hendrerit nisi sed sollicitudin pellentesque posuere
+                      purus rhoncus.
+                    </p>
+                    <Link to="/">Learn more &#8594;</Link>
+                  </QuickFactColumn>
+                </Fade>
               </Col>
-              <Col sm={3}>
-                <QuickFactColumn>
-                  <h5>Works across multiple platforms</h5>
-                  <h4>Easy integration</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                    hendrerit nisi sed sollicitudin pellentesque posuere purus
-                    rhoncus.
-                  </p>
-                  <a href="/">Learn more &#8594;</a>
-                </QuickFactColumn>
+              <Col lg={3}>
+                <Fade bottom>
+                  <QuickFactColumn>
+                    <h5>Works across multiple platforms</h5>
+                    <h4>Easy integration</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nam hendrerit nisi sed sollicitudin pellentesque posuere
+                      purus rhoncus.
+                    </p>
+                    <Link to="/">Learn more &#8594;</Link>
+                  </QuickFactColumn>
+                </Fade>
               </Col>
             </Row>
           </ContainerSection>
@@ -317,12 +348,14 @@ const IndexPage = () => {
       </Fade>
       {/* Additional Facts Section */}
       <Fade>
-        <ContainerRow backgroundColor="white">
+        <ContainerRow backgroundcolor="white">
           <ContainerSection fluid>
             <Row>
               <Col sm={6}>
                 <AdditionalFactsImageColumn>
-                  <Image src={Biker} fluid />
+                  <Slide left>
+                    <Image src={Biker} fluid />
+                  </Slide>
                 </AdditionalFactsImageColumn>
               </Col>
               <Col sm={6}>
@@ -337,7 +370,9 @@ const IndexPage = () => {
                 <Row>
                   <Col sm={6}>
                     <AdditionalFactsColumn>
-                      <Icons src={LowestPrices} fluid />
+                      <Fade bottom>
+                        <Icons src={LowestPrices} fluid />
+                      </Fade>
                       <h4>Lowest prices</h4>
                       <p>
                         Our network and experience in the industry has given us
@@ -347,7 +382,9 @@ const IndexPage = () => {
                   </Col>
                   <Col sm={6}>
                     <AdditionalFactsColumn>
-                      <Icons src={NoContracts} fluid />
+                      <Fade bottom>
+                        <Icons src={NoContracts} fluid />
+                      </Fade>
                       <h4>No contracts</h4>
                       <p>
                         We don't force you to stay with us. But our simple
@@ -357,7 +394,9 @@ const IndexPage = () => {
                   </Col>
                   <Col sm={6}>
                     <AdditionalFactsColumn>
-                      <Icons src={SaveMoney} fluid />
+                      <Fade bottom>
+                        <Icons src={SaveMoney} fluid />
+                      </Fade>
                       <h4>Save money</h4>
                       <p>
                         Our clients save a significant amount of money on card
@@ -367,7 +406,9 @@ const IndexPage = () => {
                   </Col>
                   <Col sm={6}>
                     <AdditionalFactsColumn>
-                      <Icons src={EasyDevices} fluid />
+                      <Fade bottom>
+                        <Icons src={EasyDevices} fluid />
+                      </Fade>
                       <h4>Easy devices</h4>
                       <p>
                         We work across numerous hardware and software options,
@@ -385,7 +426,7 @@ const IndexPage = () => {
           <ContainerSection fluid>
             <CustomerQuoteSection>
               <Col sm={3} className="p-0">
-                <Image src={Customer} fluid />
+                <div className="quote-image-column"></div>
               </Col>
               <Col sm={9}>
                 <div className="quote-column">

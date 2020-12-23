@@ -3,7 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled, { ThemeProvider } from "styled-components";
 import { Container } from "react-bootstrap";
 import "../css/index.css";
-import Footer from "../components/footer.js";
+import Footer from "./footer.js";
+import Helmet from "react-helmet";
+import Header from "./header";
 
 const theme = {
   colors: {
@@ -57,10 +59,21 @@ const MainContainer = styled(Container)`
 
 const Layout = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <MainContainer fluid>{children}</MainContainer>
-      <Footer></Footer>
-    </ThemeProvider>
+    <React.Fragment>
+      <Helmet>
+        <title>Auto Shop Pay</title>
+        <meta
+          name="title"
+          content="Auto Shop Pay: We make getting paid, simple."
+        />
+        <meta name="description" content="We make getting paid, simple." />
+      </Helmet>
+      <ThemeProvider theme={theme}>
+        <Header></Header>
+        <MainContainer fluid>{children}</MainContainer>
+        <Footer></Footer>
+      </ThemeProvider>
+    </React.Fragment>
   );
 };
 export default Layout;
