@@ -14,6 +14,7 @@ const theme = {
     aspBlue: "#102e57",
     aspLightBlue: "#efefef",
     aspLightGray: "#cecece",
+    aspBlack: "#000b11",
   },
   fontSize: {
     extraSmall: "0.8rem",
@@ -54,6 +55,9 @@ const MainContainer = styled(Container)`
     font-weight: 700;
     letter-spacing: 0.5px;
     color: ${(props) => props.theme.colors.aspDarkYellow};
+  }
+  p {
+    color: ${(props) => props.theme.colors.aspBlack};
   }
 `;
 
