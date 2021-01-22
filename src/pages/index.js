@@ -248,10 +248,10 @@ const IndexPage = () => {
                       simple, low cost, flat rate merchant services...
                     </p>
                     <p>
-                      Merchant services are confusing and often corrupt,{" "}
-                      <span>with YOU as the victim.</span> From opaque sales
-                      process to confusing statements these egregious practices
-                      erode your profitability month after month.
+                      Merchant services are confusing and often corrupt, with
+                      you as the victim. From opaque sales process to confusing
+                      statements these egregious practices erode your
+                      profitability month after month.
                     </p>
                     <p>
                       Since we only work with the auto industry we have the
