@@ -93,6 +93,12 @@ const CopyrightSection = styled.div`
   }
 `;
 
+const currentYear = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  return year;
+};
+
 const Footer = () => {
   return (
     <Fade>
@@ -177,7 +183,10 @@ const Footer = () => {
         <Row>
           <Col sm={12}>
             <CopyrightSection>
-              <p>Copyright &#169; Auto Shop Pay 2020.</p>
+              <p>
+                Copyright &#169; Auto Shop Pay {currentYear()}. All rights
+                reserved.
+              </p>
               <p>
                 Design and code by{" "}
                 <a
