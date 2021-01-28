@@ -201,7 +201,7 @@ const IndexPage = () => {
         <ContainerRow>
           <ContainerSection fluid>
             <Row>
-              <Col md={{ span: 6, order: 1 }} xs={{ span: 12, order: 2 }}>
+              <Col lg={{ span: 6, order: 1 }} xs={{ span: 12, order: 2 }}>
                 <HeroSection>
                   <h1>Payments Simplified</h1>
                   <p>
@@ -216,7 +216,7 @@ const IndexPage = () => {
                   <p className="details">Take the $100 challenge today!</p>
                 </HeroSection>
               </Col>
-              <Col md={{ span: 6, order: 2 }} xs={{ span: 12, order: 1 }}>
+              <Col lg={{ span: 6, order: 2 }} xs={{ span: 12, order: 1 }}>
                 <Image src={HeroIllustration} fluid />
               </Col>
             </Row>
@@ -289,7 +289,7 @@ const IndexPage = () => {
         <ContainerRow>
           <ContainerSection fluid>
             <Row>
-              <Col lg={3}>
+              <Col xl={3}>
                 <Fade bottom>
                   <QuickFactColumn>
                     <h5>Payments Simplified</h5>
@@ -303,7 +303,7 @@ const IndexPage = () => {
                   </QuickFactColumn>
                 </Fade>
               </Col>
-              <Col lg={3}>
+              <Col xl={3}>
                 <Fade bottom>
                   <QuickFactColumn>
                     <h5>The freedom of month-to-month</h5>
@@ -317,7 +317,7 @@ const IndexPage = () => {
                   </QuickFactColumn>
                 </Fade>
               </Col>
-              <Col lg={3}>
+              <Col xl={3}>
                 <Fade bottom>
                   <QuickFactColumn>
                     <h5>Abosolute best industry pricing</h5>
@@ -331,7 +331,7 @@ const IndexPage = () => {
                   </QuickFactColumn>
                 </Fade>
               </Col>
-              <Col lg={3}>
+              <Col xl={3}>
                 <Fade bottom>
                   <QuickFactColumn>
                     <h5>Works across multiple platforms</h5>
@@ -354,14 +354,14 @@ const IndexPage = () => {
         <ContainerRow backgroundcolor="white">
           <ContainerSection fluid>
             <Row>
-              <Col sm={6}>
+              <Col lg={6}>
                 <AdditionalFactsImageColumn>
                   <Slide left>
                     <Image src={Biker} fluid />
                   </Slide>
                 </AdditionalFactsImageColumn>
               </Col>
-              <Col sm={6}>
+              <Col lg={6}>
                 <Row>
                   <Col sm={12}>
                     <AdditionalFactsSection>
