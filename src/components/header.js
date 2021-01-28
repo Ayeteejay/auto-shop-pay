@@ -1,21 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../images/autoshop-pay-blue-logo.svg";
-import Navbar from "react-bootstrap/Navbar";
 import { Link } from "gatsby";
-
-const MainNav = styled(Navbar)`
-  background-color: white;
-  padding: 1.5rem 3rem;
-  a {
-    color: ${(props) => props.theme.colors.aspBlue};
-    transition: 0.3s;
-  }
-  a:hover {
-    color: ${(props) => props.theme.colors.aspDarkYellow};
-    text-decoration: none;
-  }
-`;
 
 const CallToAction = styled(Link)`
   background-color: ${(props) => props.theme.colors.aspDarkYellow};
@@ -30,21 +16,51 @@ const CallToAction = styled(Link)`
       props.theme.breakPoints.large}) {
     padding: 0.5rem 1rem;
   }
+  @media (max-width: ${(props) => props.theme.breakPoints.small}) {
+    display: none;
+  }
+`;
+
+const Navigation = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 3em;
+`;
+
+const Whopper = styled.div`
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+  @media (max-width: ${(props) => props.theme.breakPoints.small}) {
+    display: inherit;
+  }
+`;
+const BurgerSlices = styled.span`
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: ${(props) => props.theme.colors.aspDarkYellow};
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
 `;
 
 const Header = () => {
   return (
-    <MainNav sticky="top" collapseOnSelect expand="lg">
+    <Navigation>
       <Link to="/">
         <img src={Logo} width="220px" alt="Auto Shop Pay Logo"></img>
       </Link>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text>
-          <CallToAction to="/contact">Book Appointment &#8594;</CallToAction>
-        </Navbar.Text>
-      </Navbar.Collapse>
-    </MainNav>
+      <Whopper>
+        <BurgerSlices></BurgerSlices>
+        <BurgerSlices></BurgerSlices>
+        <BurgerSlices></BurgerSlices>
+      </Whopper>
+      <CallToAction to="/contact">Book Appointment &#8594;</CallToAction>
+    </Navigation>
   );
 };
 export default Header;
